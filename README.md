@@ -1,5 +1,8 @@
 C++ NodeJS module to work with Firebird SQL Server. Uses fbclient library and with a few tweaks it can use libfbembedded
 
+**Forked Version:** We want the default transaction to have READ_COMMITTED isolation.
+
+
 ![Firebird Logo](https://www.totaljs.com/exports/firebird-logo.png)
 
 [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![Mozilla License][license-image]][license-url]
