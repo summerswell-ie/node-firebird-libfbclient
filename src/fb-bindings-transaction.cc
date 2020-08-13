@@ -77,7 +77,10 @@ bool Transaction::start_transaction()
 {
 	if (!trans)
 	{
-		if (isc_start_transaction(status, &trans, 1, &connection->db, 0, NULL))
+		// *** We want the default transaction to have READ_COMMITTED isolation
+		static char isc_tpb_0[] = {isc_tpb_version3, isc_tpb_write, isc_tpb_wait, isc_tpb_read_committed, isc_tpb_rec_version};
+		
+		if (isc_start_transaction(status, &trans, 1, &connection->db, sizeof(isc_tpb_0), isc_tpb_0))
 		{
 			trans = 0;
 			return false;
